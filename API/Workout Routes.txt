@@ -1,5 +1,8 @@
 Workout API Routes:
 
+add this in front of the routes: ae385workout-api.herokuapp.com
+For example: ae385workout-api.herokuapp.com/sessions/ 
+
 @app.route("/sessions/")
 *Gets all sessions*
 
