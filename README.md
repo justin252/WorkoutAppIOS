@@ -1,2 +1,2 @@
-# WorkoutAppIOS
-FInal Project for IOS
+# WorkoutApp
+An ios app that can be used to track and log workouts.
