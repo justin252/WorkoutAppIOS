@@ -21,14 +21,15 @@ class ExerciseViewController: UIViewController {
     let cellHeight: CGFloat = 50
 
     
-    let squats = Exercise(imageName: "squats", name: "Squats", muscleTarget: "Hamstrings")
-    let jumpropes = Exercise(imageName: "jumprope", name: "Jump Ropes", muscleTarget: "Calves")
-    let bench = Exercise(imageName: "benchpress", name: "Bench Press", muscleTarget: "Chest")
-    let deadlift = Exercise(imageName: "deadlift", name: "Deadlift", muscleTarget: "Back")
-    let dips = Exercise(imageName: "dips", name: "Dips", muscleTarget: "Triceps")
-    let situp = Exercise(imageName: "situps", name: "Sit-ups", muscleTarget: "Abs")
-    let overheadpress = Exercise(imageName: "overheadpress", name: "Overhead press", muscleTarget: "Shoulders")
-    let curls = Exercise(imageName: "curls", name: "Dumbell curls", muscleTarget: "Biceps")
+    let squats = Exercise(imageName: "", name: "Squats", muscleTarget: "Hamstrings", seen: false)
+    let jumpropes = Exercise(imageName: "", name: "Jump Ropes", muscleTarget: "Calves", seen: false)
+    let bench = Exercise(imageName: "", name: "Bench Press", muscleTarget: "Chest", seen: false)
+    let deadlift = Exercise(imageName: "", name: "Deadlift", muscleTarget: "Back", seen: false)
+    let dips = Exercise(imageName: "", name: "Dips", muscleTarget: "Triceps", seen: false)
+    let situp = Exercise(imageName: "", name: "Sit-ups", muscleTarget: "Abs", seen: false)
+    let overheadpress = Exercise(imageName: "", name: "Overhead press", muscleTarget: "Shoulders", seen: false)
+    let curls = Exercise(imageName: "", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+    
     
     var exercises: [Exercise]!
 
