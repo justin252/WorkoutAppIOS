@@ -6,21 +6,24 @@
 //
 
 import UIKit
-
+protocol NameDelegate:class {
+    func updateWorkout(newWorkout: Workout)
+}
 class WorkoutViewController: UIViewController {
     var titleLabel: UILabel!
     var workoutsView: UICollectionView!
+    var addButton: UIButton!
     let padding: CGFloat = 5
     let workoutReuseIdentifier = "exerciseCellReuseIdentifier"
     
-    let squats = Exercise(imageName: "", name: "Squats", muscleTarget: "Hamstrings")
-    let jumpropes = Exercise(imageName: "", name: "Jump Ropes", muscleTarget: "Calves")
-    let bench = Exercise(imageName: "", name: "Bench Press", muscleTarget: "Chest")
-    let deadlift = Exercise(imageName: "", name: "Deadlift", muscleTarget: "Back")
-    let dips = Exercise(imageName: "", name: "Dips", muscleTarget: "Triceps")
-    let situp = Exercise(imageName: "", name: "Sit-ups", muscleTarget: "Abs")
-    let overheadpress = Exercise(imageName: "", name: "Overhead press", muscleTarget: "Shoulders")
-    let curls = Exercise(imageName: "", name: "Dumbell curls", muscleTarget: "Biceps")
+    let squats = Exercise(imageName: "", name: "Squats", muscleTarget: "Hamstrings", seen: false)
+    let jumpropes = Exercise(imageName: "", name: "Jump Ropes", muscleTarget: "Calves", seen: false)
+    let bench = Exercise(imageName: "", name: "Bench Press", muscleTarget: "Chest", seen: false)
+    let deadlift = Exercise(imageName: "", name: "Deadlift", muscleTarget: "Back", seen: false)
+    let dips = Exercise(imageName: "", name: "Dips", muscleTarget: "Triceps", seen: false)
+    let situp = Exercise(imageName: "", name: "Sit-ups", muscleTarget: "Abs", seen: false)
+    let overheadpress = Exercise(imageName: "", name: "Overhead press", muscleTarget: "Shoulders", seen: false)
+    let curls = Exercise(imageName: "", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
     
     var exercises: [Exercise] = []
     var workouts: [Workout] = []
@@ -45,6 +48,20 @@ class WorkoutViewController: UIViewController {
         titleLabel.numberOfLines = 2
         titleLabel.textColor = .black
         view.addSubview(titleLabel)
+        
+        addButton = UIButton()
+        addButton.translatesAutoresizingMaskIntoConstraints = false
+        addButton.setTitle("Add Workout", for: .normal)
+        addButton.backgroundColor = .systemTeal
+        addButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
+        addButton.layer.borderWidth = 3.0
+        addButton.layer.borderColor = UIColor.systemPurple.cgColor
+        addButton.setTitleColor(.black, for: .normal)
+        addButton.layer.cornerRadius = 4
+        addButton.addTarget(self, action: #selector(update), for: .touchUpInside)
+        view.addSubview(addButton)
+
+        
         
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = padding
@@ -74,7 +91,14 @@ class WorkoutViewController: UIViewController {
             workoutsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             workoutsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             workoutsView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            workoutsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            workoutsView.heightAnchor.constraint(equalToConstant: 500)
+        ])
+        
+        NSLayoutConstraint.activate([
+            addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            addButton.widthAnchor.constraint(equalToConstant: 150),
+            addButton.topAnchor.constraint(equalTo: workoutsView.bottomAnchor, constant: 30),
+            addButton.heightAnchor.constraint(equalToConstant: 50)
         ])
         
 //        NSLayoutConstraint.activate([
@@ -88,6 +112,12 @@ class WorkoutViewController: UIViewController {
 //            exerciseButton.leadingAnchor.constraint(equalTo: workoutButton.trailingAnchor, constant: 10),
 //            exerciseButton.heightAnchor.constraint(equalToConstant: 24)
 //        ])
+    }
+    @objc func update(){
+        let vc = NewWorkoutViewController()
+        vc.delegate = self
+        present(vc, animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
     }
 }
 
@@ -122,7 +152,14 @@ extension WorkoutViewController: UICollectionViewDelegate{
         //vc.delegate = self
         present(vc, animated: true, completion: nil)
     }
+    
 }
 
-
-
+extension WorkoutViewController: NameDelegate{
+    func updateWorkout(newWorkout:Workout) {
+        print("HI")
+        workouts.append(newWorkout);
+        workoutsView.reloadData()
+    }
+  
+}
