@@ -1,11 +1,8 @@
 //
 //  Workout.swift
-//  iOSFinalProject
+//  WorkoutApp
 //
-//  Created by Justin on 2020/12/8.
+//  Created by Justin on 2020/12/13.
 //
 
-struct Workout {
-    var name: String
-    var exercises: [Exercise]
-}
+import Foundation

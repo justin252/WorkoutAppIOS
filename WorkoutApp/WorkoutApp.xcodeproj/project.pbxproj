@@ -7,43 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		95C1F98F258479C4001F52D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C1F98E258479C4001F52D1 /* AppDelegate.swift */; };
-		95C1F991258479C4001F52D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C1F990258479C4001F52D1 /* SceneDelegate.swift */; };
-		95C1F993258479C4001F52D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C1F992258479C4001F52D1 /* ViewController.swift */; };
-		95C1F996258479C4001F52D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C1F994258479C4001F52D1 /* Main.storyboard */; };
-		95C1F998258479C8001F52D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95C1F997258479C8001F52D1 /* Assets.xcassets */; };
-		95C1F99B258479C8001F52D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C1F999258479C8001F52D1 /* LaunchScreen.storyboard */; };
-		95C1F9A4258479FE001F52D1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C1F9A3258479FE001F52D1 /* TabBarController.swift */; };
-		95C1F9A725847A13001F52D1 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C1F9A625847A13001F52D1 /* CalendarViewController.swift */; };
-		95C1F9AA25847A2A001F52D1 /* EditWorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C1F9A925847A2A001F52D1 /* EditWorkoutController.swift */; };
-		95C1F9AD25847A52001F52D1 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C1F9AC25847A52001F52D1 /* Exercise.swift */; };
-		95C1F9B425847A79001F52D1 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C1F9B325847A79001F52D1 /* ExerciseViewController.swift */; };
-		95C1F9B725847B0C001F52D1 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C1F9B625847B0C001F52D1 /* Workout.swift */; };
-		95C1F9BA25847B20001F52D1 /* WorkoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C1F9B925847B20001F52D1 /* WorkoutCollectionViewCell.swift */; };
-		95C1F9BD25847B32001F52D1 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C1F9BC25847B32001F52D1 /* WorkoutViewController.swift */; };
+		9539414825868996002A0202 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539414725868996002A0202 /* AppDelegate.swift */; };
+		9539414A25868996002A0202 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539414925868996002A0202 /* SceneDelegate.swift */; };
+		9539414C25868996002A0202 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539414B25868996002A0202 /* ViewController.swift */; };
+		9539414F25868996002A0202 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9539414D25868996002A0202 /* Main.storyboard */; };
+		9539415125868998002A0202 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9539415025868998002A0202 /* Assets.xcassets */; };
+		9539415425868998002A0202 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9539415225868998002A0202 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		95C1F98B258479C4001F52D1 /* WorkoutApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		95C1F98E258479C4001F52D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		95C1F990258479C4001F52D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		95C1F992258479C4001F52D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		95C1F995258479C4001F52D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		95C1F997258479C8001F52D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		95C1F99A258479C8001F52D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		95C1F99C258479C8001F52D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95C1F9A3258479FE001F52D1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		95C1F9A625847A13001F52D1 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		95C1F9A925847A2A001F52D1 /* EditWorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutController.swift; sourceTree = "<group>"; };
-		95C1F9AC25847A52001F52D1 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
-		95C1F9B325847A79001F52D1 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
-		95C1F9B625847B0C001F52D1 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
-		95C1F9B925847B20001F52D1 /* WorkoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCollectionViewCell.swift; sourceTree = "<group>"; };
-		95C1F9BC25847B32001F52D1 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		9539414425868996002A0202 /* WorkoutApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9539414725868996002A0202 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9539414925868996002A0202 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9539414B25868996002A0202 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9539414E25868996002A0202 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9539415025868998002A0202 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9539415325868998002A0202 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9539415525868998002A0202 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		95C1F988258479C4001F52D1 /* Frameworks */ = {
+		9539414125868996002A0202 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -53,40 +37,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		95C1F982258479C4001F52D1 = {
+		9539413B25868996002A0202 = {
 			isa = PBXGroup;
 			children = (
-				95C1F98D258479C4001F52D1 /* WorkoutApp */,
-				95C1F98C258479C4001F52D1 /* Products */,
+				9539414625868996002A0202 /* WorkoutApp */,
+				9539414525868996002A0202 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		95C1F98C258479C4001F52D1 /* Products */ = {
+		9539414525868996002A0202 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				95C1F98B258479C4001F52D1 /* WorkoutApp.app */,
+				9539414425868996002A0202 /* WorkoutApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		95C1F98D258479C4001F52D1 /* WorkoutApp */ = {
+		9539414625868996002A0202 /* WorkoutApp */ = {
 			isa = PBXGroup;
 			children = (
-				95C1F98E258479C4001F52D1 /* AppDelegate.swift */,
-				95C1F990258479C4001F52D1 /* SceneDelegate.swift */,
-				95C1F992258479C4001F52D1 /* ViewController.swift */,
-				95C1F9A3258479FE001F52D1 /* TabBarController.swift */,
-				95C1F994258479C4001F52D1 /* Main.storyboard */,
-				95C1F997258479C8001F52D1 /* Assets.xcassets */,
-				95C1F999258479C8001F52D1 /* LaunchScreen.storyboard */,
-				95C1F99C258479C8001F52D1 /* Info.plist */,
-				95C1F9A625847A13001F52D1 /* CalendarViewController.swift */,
-				95C1F9A925847A2A001F52D1 /* EditWorkoutController.swift */,
-				95C1F9AC25847A52001F52D1 /* Exercise.swift */,
-				95C1F9B325847A79001F52D1 /* ExerciseViewController.swift */,
-				95C1F9B625847B0C001F52D1 /* Workout.swift */,
-				95C1F9B925847B20001F52D1 /* WorkoutCollectionViewCell.swift */,
-				95C1F9BC25847B32001F52D1 /* WorkoutViewController.swift */,
+				9539414725868996002A0202 /* AppDelegate.swift */,
+				9539414925868996002A0202 /* SceneDelegate.swift */,
+				9539414B25868996002A0202 /* ViewController.swift */,
+				9539414D25868996002A0202 /* Main.storyboard */,
+				9539415025868998002A0202 /* Assets.xcassets */,
+				9539415225868998002A0202 /* LaunchScreen.storyboard */,
+				9539415525868998002A0202 /* Info.plist */,
 			);
 			path = WorkoutApp;
 			sourceTree = "<group>";
@@ -94,13 +70,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		95C1F98A258479C4001F52D1 /* WorkoutApp */ = {
+		9539414325868996002A0202 /* WorkoutApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95C1F99F258479C8001F52D1 /* Build configuration list for PBXNativeTarget "WorkoutApp" */;
+			buildConfigurationList = 9539415825868998002A0202 /* Build configuration list for PBXNativeTarget "WorkoutApp" */;
 			buildPhases = (
-				95C1F987258479C4001F52D1 /* Sources */,
-				95C1F988258479C4001F52D1 /* Frameworks */,
-				95C1F989258479C4001F52D1 /* Resources */,
+				9539414025868996002A0202 /* Sources */,
+				9539414125868996002A0202 /* Frameworks */,
+				9539414225868996002A0202 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -108,24 +84,24 @@
 			);
 			name = WorkoutApp;
 			productName = WorkoutApp;
-			productReference = 95C1F98B258479C4001F52D1 /* WorkoutApp.app */;
+			productReference = 9539414425868996002A0202 /* WorkoutApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		95C1F983258479C4001F52D1 /* Project object */ = {
+		9539413C25868996002A0202 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
-					95C1F98A258479C4001F52D1 = {
+					9539414325868996002A0202 = {
 						CreatedOnToolsVersion = 12.0.1;
 					};
 				};
 			};
-			buildConfigurationList = 95C1F986258479C4001F52D1 /* Build configuration list for PBXProject "WorkoutApp" */;
+			buildConfigurationList = 9539413F25868996002A0202 /* Build configuration list for PBXProject "WorkoutApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -133,63 +109,55 @@
 				en,
 				Base,
 			);
-			mainGroup = 95C1F982258479C4001F52D1;
-			productRefGroup = 95C1F98C258479C4001F52D1 /* Products */;
+			mainGroup = 9539413B25868996002A0202;
+			productRefGroup = 9539414525868996002A0202 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				95C1F98A258479C4001F52D1 /* WorkoutApp */,
+				9539414325868996002A0202 /* WorkoutApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		95C1F989258479C4001F52D1 /* Resources */ = {
+		9539414225868996002A0202 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95C1F99B258479C8001F52D1 /* LaunchScreen.storyboard in Resources */,
-				95C1F998258479C8001F52D1 /* Assets.xcassets in Resources */,
-				95C1F996258479C4001F52D1 /* Main.storyboard in Resources */,
+				9539415425868998002A0202 /* LaunchScreen.storyboard in Resources */,
+				9539415125868998002A0202 /* Assets.xcassets in Resources */,
+				9539414F25868996002A0202 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		95C1F987258479C4001F52D1 /* Sources */ = {
+		9539414025868996002A0202 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95C1F9A725847A13001F52D1 /* CalendarViewController.swift in Sources */,
-				95C1F9AA25847A2A001F52D1 /* EditWorkoutController.swift in Sources */,
-				95C1F9BD25847B32001F52D1 /* WorkoutViewController.swift in Sources */,
-				95C1F993258479C4001F52D1 /* ViewController.swift in Sources */,
-				95C1F9A4258479FE001F52D1 /* TabBarController.swift in Sources */,
-				95C1F9BA25847B20001F52D1 /* WorkoutCollectionViewCell.swift in Sources */,
-				95C1F98F258479C4001F52D1 /* AppDelegate.swift in Sources */,
-				95C1F9B725847B0C001F52D1 /* Workout.swift in Sources */,
-				95C1F9AD25847A52001F52D1 /* Exercise.swift in Sources */,
-				95C1F9B425847A79001F52D1 /* ExerciseViewController.swift in Sources */,
-				95C1F991258479C4001F52D1 /* SceneDelegate.swift in Sources */,
+				9539414C25868996002A0202 /* ViewController.swift in Sources */,
+				9539414825868996002A0202 /* AppDelegate.swift in Sources */,
+				9539414A25868996002A0202 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		95C1F994258479C4001F52D1 /* Main.storyboard */ = {
+		9539414D25868996002A0202 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				95C1F995258479C4001F52D1 /* Base */,
+				9539414E25868996002A0202 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		95C1F999258479C8001F52D1 /* LaunchScreen.storyboard */ = {
+		9539415225868998002A0202 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				95C1F99A258479C8001F52D1 /* Base */,
+				9539415325868998002A0202 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -197,7 +165,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		95C1F99D258479C8001F52D1 /* Debug */ = {
+		9539415625868998002A0202 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -258,7 +226,7 @@
 			};
 			name = Debug;
 		};
-		95C1F99E258479C8001F52D1 /* Release */ = {
+		9539415725868998002A0202 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -313,7 +281,7 @@
 			};
 			name = Release;
 		};
-		95C1F9A0258479C8001F52D1 /* Debug */ = {
+		9539415925868998002A0202 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -331,7 +299,7 @@
 			};
 			name = Debug;
 		};
-		95C1F9A1258479C8001F52D1 /* Release */ = {
+		9539415A25868998002A0202 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -352,25 +320,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		95C1F986258479C4001F52D1 /* Build configuration list for PBXProject "WorkoutApp" */ = {
+		9539413F25868996002A0202 /* Build configuration list for PBXProject "WorkoutApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				95C1F99D258479C8001F52D1 /* Debug */,
-				95C1F99E258479C8001F52D1 /* Release */,
+				9539415625868998002A0202 /* Debug */,
+				9539415725868998002A0202 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95C1F99F258479C8001F52D1 /* Build configuration list for PBXNativeTarget "WorkoutApp" */ = {
+		9539415825868998002A0202 /* Build configuration list for PBXNativeTarget "WorkoutApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				95C1F9A0258479C8001F52D1 /* Debug */,
-				95C1F9A1258479C8001F52D1 /* Release */,
+				9539415925868998002A0202 /* Debug */,
+				9539415A25868998002A0202 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 95C1F983258479C4001F52D1 /* Project object */;
+	rootObject = 9539413C25868996002A0202 /* Project object */;
 }
