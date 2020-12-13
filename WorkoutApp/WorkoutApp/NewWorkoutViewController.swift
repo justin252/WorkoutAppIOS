@@ -35,7 +35,11 @@ class NewWorkoutViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        exercises = [squats, jumpropes, bench, deadlift, dips, situp, overheadpress, curls]
+        
+        //Load in exercises from API
+        getExercises()
+        
+        //exercises = [squats, jumpropes, bench, deadlift, dips, situp, overheadpress, curls]
         goodExs = []
         
         pageTitle = UILabel()
@@ -139,6 +143,15 @@ class NewWorkoutViewController: UIViewController {
         w = Workout(name: wName, exercises: goodExs)
         delegate?.updateWorkout(newWorkout: w)
         dismiss(animated: true, completion: nil)
+    }
+    private func getExercises() {
+        NetworkManager.getExercises() { exercises in
+            self.exercises = exercises
+            
+            DispatchQueue.main.async {
+                self.newExercisePicker.reloadData()
+            }
+        }
     }
 }
 

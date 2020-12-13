@@ -10,10 +10,7 @@ import Alamofire
 class NetworkManager {
     private static let host = "ae385workout-api.herokuapp.com"
 
-    
-    
-
-static func getRestaurants(completion: @escaping ([Workout]) -> Void) {
+static func getExercises(completion: @escaping ([Workout]) -> Void) {
     let endpoint = "\(host)/exercises/"
     AF.request(endpoint, method: .get).validate().responseData { response in
         switch response.result {
