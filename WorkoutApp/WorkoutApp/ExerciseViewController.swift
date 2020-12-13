@@ -19,7 +19,7 @@ class ExerciseViewController: UIViewController {
     
     let workoutReuseIdentifier = "workoutCellReuseIdentifier"
     let cellHeight: CGFloat = 50
-
+    
     
     let squats = Exercise(imageName: "squats", name: "Squats", muscleTarget: "Hamstrings", seen: false)
     let jumpropes = Exercise(imageName: "jumprope", name: "Jump Ropes", muscleTarget: "Calves", seen: false)

@@ -22,10 +22,11 @@
 		9539417525868AA3002A0202 /* NewWorkoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539417425868AA3002A0202 /* NewWorkoutCollectionViewCell.swift */; };
 		9539417825868AAB002A0202 /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539417725868AAB002A0202 /* NewWorkoutViewController.swift */; };
 		9539417B25868AB3002A0202 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539417A25868AB3002A0202 /* TabBarController.swift */; };
-		9539417E25868ABA002A0202 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539417D25868ABA002A0202 /* Workout.swift */; };
 		9539418125868ACA002A0202 /* WorkoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539418025868ACA002A0202 /* WorkoutCollectionViewCell.swift */; };
 		9539418425868AD2002A0202 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539418325868AD2002A0202 /* WorkoutViewController.swift */; };
 		9539418725868F0C002A0202 /* LogWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539418625868F0C002A0202 /* LogWorkoutViewController.swift */; };
+		958310F22586D857008E9818 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958310F12586D857008E9818 /* Workout.swift */; };
+		95E85B5F2586CCE000B1DD03 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E85B5E2586CCE000B1DD03 /* NetworkManager.swift */; };
 		B72324862A6E893DD00CCF44 /* Pods_WorkoutApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F0D29F67A6D8859D6B5960 /* Pods_WorkoutApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,10 +49,11 @@
 		9539417425868AA3002A0202 /* NewWorkoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutCollectionViewCell.swift; sourceTree = "<group>"; };
 		9539417725868AAB002A0202 /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
 		9539417A25868AB3002A0202 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		9539417D25868ABA002A0202 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		9539418025868ACA002A0202 /* WorkoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCollectionViewCell.swift; sourceTree = "<group>"; };
 		9539418325868AD2002A0202 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		9539418625868F0C002A0202 /* LogWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogWorkoutViewController.swift; sourceTree = "<group>"; };
+		958310F12586D857008E9818 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		95E85B5E2586CCE000B1DD03 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D5F0D29F67A6D8859D6B5960 /* Pods_WorkoutApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkoutApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB332BC1E30130DE68DFB3C /* Pods-WorkoutApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkoutApp.release.xcconfig"; path = "Target Support Files/Pods-WorkoutApp/Pods-WorkoutApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,11 +115,12 @@
 				9539417125868A99002A0202 /* ExerciseViewController.swift */,
 				9539417425868AA3002A0202 /* NewWorkoutCollectionViewCell.swift */,
 				9539417725868AAB002A0202 /* NewWorkoutViewController.swift */,
+				958310F12586D857008E9818 /* Workout.swift */,
 				9539417A25868AB3002A0202 /* TabBarController.swift */,
-				9539417D25868ABA002A0202 /* Workout.swift */,
 				9539418025868ACA002A0202 /* WorkoutCollectionViewCell.swift */,
 				9539418325868AD2002A0202 /* WorkoutViewController.swift */,
 				9539418625868F0C002A0202 /* LogWorkoutViewController.swift */,
+				95E85B5E2586CCE000B1DD03 /* NetworkManager.swift */,
 			);
 			path = WorkoutApp;
 			sourceTree = "<group>";
@@ -247,18 +250,19 @@
 				9539416325868A49002A0202 /* CalendarViewController.swift in Sources */,
 				9539416F25868A90002A0202 /* ExerciseTableViewCell.swift in Sources */,
 				9539416925868A6E002A0202 /* EditWorkoutController.swift in Sources */,
-				9539417E25868ABA002A0202 /* Workout.swift in Sources */,
 				9539417525868AA3002A0202 /* NewWorkoutCollectionViewCell.swift in Sources */,
 				9539418725868F0C002A0202 /* LogWorkoutViewController.swift in Sources */,
 				9539414C25868996002A0202 /* ViewController.swift in Sources */,
 				9539414825868996002A0202 /* AppDelegate.swift in Sources */,
 				9539416625868A5E002A0202 /* EditExerciseViewController.swift in Sources */,
 				9539418125868ACA002A0202 /* WorkoutCollectionViewCell.swift in Sources */,
+				95E85B5F2586CCE000B1DD03 /* NetworkManager.swift in Sources */,
 				9539417825868AAB002A0202 /* NewWorkoutViewController.swift in Sources */,
 				9539416C25868A78002A0202 /* Exercise.swift in Sources */,
 				9539417B25868AB3002A0202 /* TabBarController.swift in Sources */,
 				9539418425868AD2002A0202 /* WorkoutViewController.swift in Sources */,
 				9539417225868A99002A0202 /* ExerciseViewController.swift in Sources */,
+				958310F22586D857008E9818 /* Workout.swift in Sources */,
 				9539414A25868996002A0202 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
