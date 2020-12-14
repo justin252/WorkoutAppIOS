@@ -8,7 +8,7 @@
 import UIKit
 
 
-class LogWorkoutViewController: UIViewController {
+class EditLogViewController: UIViewController {
     weak var delegate: LogWorkoutDelegate?
     var saveButton: UIButton!
     var dateLabel: UILabel!
@@ -30,6 +30,7 @@ class LogWorkoutViewController: UIViewController {
         setupViews()
         setupConstraints()
     }
+    
     func setupViews(){
         // Display the date
         let formatter = DateFormatter()
@@ -41,10 +42,4 @@ class LogWorkoutViewController: UIViewController {
     func setupConstraints(){
         
     }
-    @objc func popViewControllerAndLogWorkout() {
-        // get the reps and sets data from the text fields
-        
-        navigationController?.popViewController(animated: true)
-    }
-
 }
