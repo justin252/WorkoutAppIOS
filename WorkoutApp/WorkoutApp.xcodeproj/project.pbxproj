@@ -29,6 +29,8 @@
 		ECDDAFFC2587CD4300F97373 /* ExpandedExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDAFFB2587CD4300F97373 /* ExpandedExercise.swift */; };
 		ECDDAFFF2587CD8600F97373 /* WorkoutViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDAFFE2587CD8600F97373 /* WorkoutViewTableViewCell.swift */; };
 		ECDDB0022587CEE400F97373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECDDB0012587CEE400F97373 /* Assets.xcassets */; };
+		ECDDB01425882BDE00F97373 /* EditLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDB01325882BDE00F97373 /* EditLogViewController.swift */; };
+		ECDDB01725882BFE00F97373 /* InfoLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDB01625882BFE00F97373 /* InfoLogViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		ECDDAFFB2587CD4300F97373 /* ExpandedExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedExercise.swift; sourceTree = "<group>"; };
 		ECDDAFFE2587CD8600F97373 /* WorkoutViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewTableViewCell.swift; sourceTree = "<group>"; };
 		ECDDB0012587CEE400F97373 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../Update Vers final proj/WorkoutAppIOS/WorkoutApp/WorkoutApp/Assets.xcassets"; sourceTree = "<group>"; };
+		ECDDB01325882BDE00F97373 /* EditLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLogViewController.swift; sourceTree = "<group>"; };
+		ECDDB01625882BFE00F97373 /* InfoLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoLogViewController.swift; sourceTree = "<group>"; };
 		FCB332BC1E30130DE68DFB3C /* Pods-WorkoutApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkoutApp.release.xcconfig"; path = "Target Support Files/Pods-WorkoutApp/Pods-WorkoutApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +114,8 @@
 				9539415225868998002A0202 /* LaunchScreen.storyboard */,
 				9539415525868998002A0202 /* Info.plist */,
 				9539416225868A49002A0202 /* CalendarViewController.swift */,
+				ECDDB01325882BDE00F97373 /* EditLogViewController.swift */,
+				ECDDB01625882BFE00F97373 /* InfoLogViewController.swift */,
 				9539416525868A5E002A0202 /* EditExerciseViewController.swift */,
 				9539416825868A6E002A0202 /* EditWorkoutController.swift */,
 				ECDDAFFB2587CD4300F97373 /* ExpandedExercise.swift */,
@@ -256,10 +262,12 @@
 				9539417525868AA3002A0202 /* NewWorkoutCollectionViewCell.swift in Sources */,
 				9539414C25868996002A0202 /* ViewController.swift in Sources */,
 				ECDDAFFF2587CD8600F97373 /* WorkoutViewTableViewCell.swift in Sources */,
+				ECDDB01425882BDE00F97373 /* EditLogViewController.swift in Sources */,
 				ECDDAFFC2587CD4300F97373 /* ExpandedExercise.swift in Sources */,
 				9539414825868996002A0202 /* AppDelegate.swift in Sources */,
 				9539416625868A5E002A0202 /* EditExerciseViewController.swift in Sources */,
 				9539418125868ACA002A0202 /* WorkoutCollectionViewCell.swift in Sources */,
+				ECDDB01725882BFE00F97373 /* InfoLogViewController.swift in Sources */,
 				95E85B5F2586CCE000B1DD03 /* NetworkManager.swift in Sources */,
 				9539417825868AAB002A0202 /* NewWorkoutViewController.swift in Sources */,
 				9539416C25868A78002A0202 /* Exercise.swift in Sources */,

@@ -35,11 +35,12 @@ class WorkoutViewController: UIViewController {
         let overheadpress = Exercise(id: 1, name: "Overhead Press", seen: false, sets: [])
         let curls = Exercise(id: 1, name: "Dumbell curls", seen: false, sets: [])
         
-        
-        let workout1 = Workout(id: 1, date: "12/13/20", name: "Workout 1", notes: "Great workout.", exercises:[bench, overheadpress, dips])
-        let workout2 = Workout(id: 1, date: "12/13/20", name: "Workout 2", notes: "Great workout.", exercises:[deadlift, curls])
-        let workout3 = Workout(id: 1, date: "12/13/20", name: "Workout 3", notes: "Great workout.", exercises:[squats, situp])
-        let workout4 = Workout(id: 1, date: "12/13/20", name: "Workout 4", notes: "Great workout.", exercises:[jumpropes])
+        let workout1 = Workout(id: 1, date: "", name: "Workout 1", notes: "", exercises: [bench,overheadpress,dips], userId: 1)
+        let workout2 = Workout(id: 1, date: "", name: "Workout 2", notes: "", exercises: [deadlift,curls], userId: 1)
+        let workout3 = Workout(id: 1, date: "", name: "Workout 3", notes: "", exercises: [squats,situp], userId: 1)
+        let workout4 = Workout(id: 1, date: "", name: "Workout 4", notes: "", exercises: [jumpropes], userId: 1)
+
+
         
         exercises = [squats, jumpropes, bench, deadlift, dips, situp, overheadpress, curls]
         workouts = [workout1, workout2, workout3, workout4]

@@ -141,7 +141,7 @@ class NewWorkoutViewController: UIViewController {
         }
         wName = workoutName.text
         //UPDATE
-        w = Workout(id: 1, date: "test", name: wName, notes: "test", exercises: goodExs)
+        w = Workout(id: 1, date: "test", name: wName, notes: "test", exercises: goodExs, userId: 1)
         delegate?.updateWorkout(newWorkout: w)
         dismiss(animated: true, completion: nil)
     }

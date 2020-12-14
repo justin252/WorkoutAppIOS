@@ -175,7 +175,7 @@ class EditLogViewController: UIViewController {
     
 //    var additionalCells: Int = 0 //update every time a new cell is added
 //    var numElementsPerExercise : [String : Int]
-    var defaultExercise = Exercise(imageName: "", name: "Squats", muscleTarget: "Hamstrings", seen: false)
+    var defaultExercise = Exercise(id: 1, name: "Squats", seen: false, sets: [])
     init(delegate: LogWorkoutDelegate?, dateToDisplay: Date, workoutsToDisplay: [Workout]){
         self.currentDate = dateToDisplay
         self.workoutItems = workoutsToDisplay

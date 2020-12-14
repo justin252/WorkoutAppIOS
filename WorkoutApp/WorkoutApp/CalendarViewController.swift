@@ -16,28 +16,29 @@ class CalendarViewController: UIViewController {
     var inEditingMode: Bool = true
     
     
-    let squats = Exercise(imageName: "", name: "Squats", muscleTarget: "Hamstrings", seen: false)
-    let jumpropes = Exercise(imageName: "", name: "Jump Ropes", muscleTarget: "Calves", seen: false)
-    let bench = Exercise(imageName: "", name: "Bench Press", muscleTarget: "Chest", seen: false)
-    let deadlift = Exercise(imageName: "", name: "Deadlift", muscleTarget: "Back", seen: false)
-    let dips = Exercise(imageName: "", name: "Dips", muscleTarget: "Triceps", seen: false)
-    let situp = Exercise(imageName: "", name: "Sit-ups", muscleTarget: "Abs", seen: false)
-    let overheadpress = Exercise(imageName: "", name: "Overhead press", muscleTarget: "Shoulders", seen: false)
-    let curls = Exercise(imageName: "", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
-    
-    var exercises: [Exercise] = []
+    let squats = Exercise(id: 1, name: "Squats", seen: false, sets: [])
+    let jumpropes = Exercise(id: 1, name: "Jump Ropes", seen: false, sets: [])
+    let bench = Exercise(id: 1, name: "Bench", seen: false, sets: [])
+    let deadlift = Exercise(id: 1, name: "Deadlift", seen: false, sets: [])
+    let dips = Exercise(id: 1, name: "Dips", seen: false, sets: [])
+    let situp = Exercise(id: 1, name: "Situps", seen: false, sets: [])
+    let overheadpress = Exercise(id: 1, name: "Overhead Press", seen: false, sets: [])
+    let curls = Exercise(id: 1, name: "Curls", seen: false, sets: [])
+
     var workouts: [Workout] = []
     //dictionary storing data
     var completeWorkoutLog : [Date : Workout]! = [:]
         
+    var exercises: [Exercise] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let workout1 = Workout(id: 1, date: "", name: "Workout 1", notes: "", exercises: [bench, overheadpress, dips])
-        let workout2 = Workout(id: 1, date: "", name: "Workout 2", notes: "", exercises: [deadlift, curls])
-        let workout3 = Workout(id: 1, date: "", name: "Workout 3", notes: "",exercises: [squats, situp])
-        let workout4 = Workout(id: 1, date: "", name: "Workout 4", notes: "", exercises: [jumpropes])
+        let workout1 = Workout(id: 1, date: "", name: "Workout 1", notes: "", exercises: [bench, overheadpress, dips], userId: 1)
+        let workout2 = Workout(id: 1, date: "", name: "Workout 2", notes: "", exercises: [deadlift, curls], userId: 1)
+        let workout3 = Workout(id: 1, date: "", name: "Workout 3", notes: "",exercises: [squats, situp], userId: 1)
+        let workout4 = Workout(id: 1, date: "", name: "Workout 4", notes: "", exercises: [jumpropes], userId: 1)
         
         exercises = [squats, jumpropes, bench, deadlift, dips, situp, overheadpress, curls]
         workouts = [workout1, workout2, workout3, workout4]
@@ -84,7 +85,7 @@ class CalendarViewController: UIViewController {
             presentEditLog(date: date)
         }
         else {
-            let workout1 = Workout(id: 1, date: "", name: "Workout 1", notes: "", exercises: [bench, overheadpress, dips])
+            let workout1 = Workout(id: 1, date: "", name: "Workout 1", notes: "", exercises: [bench, overheadpress, dips], userId: 1)
             presentInfoLog(date: date, workouts: workouts, workout: completeWorkoutLog[date] ?? workout1)
         }
     }

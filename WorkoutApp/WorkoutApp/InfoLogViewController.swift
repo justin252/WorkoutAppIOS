@@ -14,9 +14,11 @@ class InfoLogViewController: UIViewController {
     var saveButton: UIButton!
     var dateLabel: UILabel!
     var dateToDisplay: Date
+    var workoutToDisplay: Workout
     
-    init(delegate: LogWorkoutDelegate?, dateToDisplay: Date){
+    init(delegate: LogWorkoutDelegate?, dateToDisplay: Date, workoutToDisplay: Workout){
         self.dateToDisplay = dateToDisplay
+        self.workoutToDisplay = workoutToDisplay
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
         
