@@ -69,7 +69,7 @@ class ExerciseTableViewCell: UITableViewCell {
         
     }
 
-    func configure(for ex: Exercise) {
+    func configure(for ex: ExpandedExercise) {
         workoutName.text = ex.name
         muscleGroup.text = "Muscle Group: \(ex.muscleTarget)"
         workoutImage.image = UIImage(named: ex.imageName)
