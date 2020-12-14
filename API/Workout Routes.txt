@@ -1,35 +1,39 @@
-Workout API Routes:
-
-add this in front of the routes: ae385workout-api.herokuapp.com
-For example: ae385workout-api.herokuapp.com/sessions/ 
-
-@app.route("/sessions/")
-*Gets all sessions*
-
-@app.route("/sets/")
-*Gets all sets*
-
 @app.route ("/exercises/")
 *Get all exercises*
+
+@app.route("/users/", methods=["POST"])
+*Creates a user*
+
+@app.route("/exercises/", methods=["POST"])
+*Creates a exercise*
 
 @app.route("/sessions/", methods=["POST"])
 *Creates a session*
 
-@app.route("/sessions/<int:session_id>/", methods=["POST"])
+@app.route("/users/<int:user_id>/", methods=["POST"])
+*Updates a user*
+
+@app.route("/users/<int:user_id>/sessions/<int:session_id>/", methods=["POST"])
 *Updates a session*
 
-@app.route("/sessions/<int:session_id>/exercise/<int:exercise_id>/", methods=["POST"])
+@app.route("/users/<int:user_id>/sessions/<int:session_id>/exercise/<int:exercise_id>/", methods=["POST"])
 *Updates a exercise*
 
-@app.route("/sessions/<int:session_id>/exercise/<int:exercise_id>/sets/<int:sets_id>/" , methods=["POST"])
+@app.route("/users/<int:user_id>/sessions/<int:session_id>/exercise/<int:exercise_id>/sets/<int:sets_id>/" , methods=["POST"])
 *Updates a set*
 
-@app.route("/sessions/<int:session_id>/", methods=["DELETE"])
+@app.route("/users/<int:user_id>/sessions/<int:session_id>/", methods=["DELETE"])
 *Deletes a session*
 
-@app.route("/sessions/<int:session_id>/exercises/", methods=["POST"])
-*Creates a exercise*
+@app.route("/users/<int:user_id>/", methods=["DELETE"])
+*Deletes a user*
 
-@app.route("/sessions/<int:session_id>/exercises/<int:exercise_id>/", methods=["POST"])
-*Creates a set*
+@app.route("/users/<int:user_id>/sessions/", methods=["POST"])
+"Assigns a session*
+
+@app.route("/users/<int:user_id>/sessions/<int:session_id>/exercises/", methods=["POST"])
+"Assigns a exercise*
+
+@app.route("/users/<int:user_id>/sessions/<int:session_id>/exercises/<int:exercise_id>/", methods=["POST"])
+*Assigns a set*
 
