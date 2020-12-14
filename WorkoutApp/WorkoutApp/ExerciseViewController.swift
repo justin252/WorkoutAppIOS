@@ -21,16 +21,35 @@ class ExerciseViewController: UIViewController {
     let cellHeight: CGFloat = 50
     
     
-    let squats = Exercise(imageName: "squats", name: "Squats", muscleTarget: "Hamstrings", seen: false)
-    let jumpropes = Exercise(imageName: "jumprope", name: "Jump Ropes", muscleTarget: "Calves", seen: false)
-    let bench = Exercise(imageName: "benchpress", name: "Bench Press", muscleTarget: "Chest", seen: false)
-    let deadlift = Exercise(imageName: "deadlift", name: "Deadlift", muscleTarget: "Back", seen: false)
-    let dips = Exercise(imageName: "dips", name: "Dips", muscleTarget: "Triceps", seen: false)
-    let situp = Exercise(imageName: "situps", name: "Sit-ups", muscleTarget: "Abs", seen: false)
-    let overheadpress = Exercise(imageName: "overheadpress", name: "Overhead press", muscleTarget: "Shoulders", seen: false)
-    let curls = Exercise(imageName: "curls", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
-    
-    var exercises: [Exercise]!
+    let squats = ExpandedExercise(imageName: "squats", name: "Squats", muscleTarget: "Hamstrings", seen: false)
+    let jumpropes = ExpandedExercise(imageName: "jumprope", name: "Jump Ropes", muscleTarget: "Calves", seen: false)
+    let bench = ExpandedExercise(imageName: "benchpress", name: "Bench Press", muscleTarget: "Chest", seen: false)
+    let deadlift = ExpandedExercise(imageName: "deadlift", name: "Deadlift", muscleTarget: "Back", seen: false)
+    let dips = ExpandedExercise(imageName: "dips", name: "Dips", muscleTarget: "Triceps", seen: false)
+    let situp = ExpandedExercise(imageName: "situps", name: "Sit-ups", muscleTarget: "Abs", seen: false)
+    let overheadpress = ExpandedExercise(imageName: "overheadpress", name: "Overhead press", muscleTarget: "Shoulders", seen: false)
+    let curls = ExpandedExercise(imageName: "curls", name: "Curls", muscleTarget: "Biceps", seen: false)
+    let hangclean = ExpandedExercise(imageName: "hangclean", name: "Hangclean", muscleTarget: "Upper Body", seen: false)
+    let pushups = ExpandedExercise(imageName: "pushups", name: "Pushups", muscleTarget: "Chest/Biceps", seen: false)
+    let calfraises = ExpandedExercise(imageName: "calfraises", name: "Calf Raises", muscleTarget: "Calves", seen: false)
+    let running = ExpandedExercise(imageName: "running", name: "Running", muscleTarget: "Calves and Glutes", seen: false)
+    let biking = ExpandedExercise(imageName: "biking", name: "Dumbell curls", muscleTarget: "Calves and Thighs", seen: false)
+    let swimming = ExpandedExercise(imageName: "swimming", name: "Dumbell curls", muscleTarget: "Full Body", seen: false)
+    let lunges = ExpandedExercise(imageName: "lunges", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+    let burpees = ExpandedExercise(imageName: "burpees", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+    let planks = ExpandedExercise(imageName: "planks", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+    let yoga = ExpandedExercise(imageName: "yoga", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+    let jumpingjacks = ExpandedExercise(imageName: "jumpingjacks", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+    let buttups = ExpandedExercise(imageName: "buttups", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+    let skullcrushers = ExpandedExercise(imageName: "skullcrushers", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+    let pullups = ExpandedExercise(imageName: "pullups", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+    let curlups = ExpandedExercise(imageName: "curlups", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+    let abroller = ExpandedExercise(imageName: "abroller", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+    let crunches = ExpandedExercise(imageName: "crunches", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+    let russiantwists = ExpandedExercise(imageName: "russiantwists", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+
+
+    var exercises: [ExpandedExercise]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,21 +91,6 @@ extension ExerciseViewController: UITableViewDataSource {
         cell.configure(for: ex)
         return cell
     }
-    /*
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-       let footerView = UIView()
-       footerView.frame = CGRect(x: 0, y: 0, width: 400, height:
-       100)
-       let button = UIButton()
-       button.frame = CGRect(x: 20, y: 10, width: 300, height: 50)
-       button.setTitle("CustomButton", for: .normal)
-       //button.backgroundColor = colorLiteral(red: 0.721568644, green:
-       //0.8862745166, blue: 0.5921568871, alpha: 1)
-       footerView.addSubview(button)
-       return footerView
-    }*/
-
-    
 }
 
 extension ExerciseViewController: UITableViewDelegate {

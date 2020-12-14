@@ -2,26 +2,30 @@
 //  Workout.swift
 //  WorkoutApp
 //
-//  Created by Justin on 2020/12/13.
+//  Created by Ethan Stanley on 12/13/20.
 //
+import Foundation
+/*
 
-
-// format: {"success": true, "data": {"id": 1, "date": "2/21/20", "notes": "Monday Workout", "exercises": []}} // exercise: {"success": true, "data": {"id": 1, "number": null, "reps": null, "weight": "125 lbs"}}
-// {"success": true, "data": [{"id": 1, "username": "Bench", "password": null, "age": null, "weight": null, "sex": null,
-
-
-
-struct WorkoutsDataResponse: Codable {
-    /* Instructions: Take a look at the JSON response we get from our HTTP Requests.
-     * Model your RestaurantsDataResponse object after the JSON response.
-     */
+struct WorkoutsDataResponse: Codable{
     var workouts: [Workout]
-}
+}*/
 
-struct Workout: Codable {
-    // format: {"success": true, "data": {"id": 1, "date": "2/21/20", "name": "Workout 1", notes": "Monday Workout", "exercises": []}}
+//        let workout1 = Workout(id: 1, date: "12/13/20", name: "Workout 1", notes: "Great workout.", exercises: [bench, overheadpress, dips])
 
-     
+class Workout {
+    var id: Int
+    var date: String
+    var name: String
+    var notes: String
+    var exercises: [Exercise]
+    
+    init(id: Int, date: String, name: String, notes: String, exercises: [Exercise]) {
+        self.id = 1
+        self.date = date
+        self.name = name
+        self.notes = notes
+        self.exercises = exercises
+    }
     
 }
-

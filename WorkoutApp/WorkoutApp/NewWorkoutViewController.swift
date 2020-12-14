@@ -19,14 +19,14 @@ class NewWorkoutViewController: UIViewController {
     var w: Workout!
     let exerciseReuseIdentifier = "newCellReuseIdentifier"
     
-    let squats = Exercise(imageName: "", name: "Squats", muscleTarget: "Hamstrings", seen: false)
+    /*let squats = Exercise(imageName: "", name: "Squats", muscleTarget: "Hamstrings", seen: false)
     let jumpropes = Exercise(imageName: "", name: "Jump Ropes", muscleTarget: "Calves", seen: false)
     let bench = Exercise(imageName: "", name: "Bench Press", muscleTarget: "Chest", seen: false)
     let deadlift = Exercise(imageName: "", name: "Deadlift", muscleTarget: "Back", seen: false)
     let dips = Exercise(imageName: "", name: "Dips", muscleTarget: "Triceps", seen: false)
     let situp = Exercise(imageName: "", name: "Sit-ups", muscleTarget: "Abs", seen: false)
     let overheadpress = Exercise(imageName: "", name: "Overhead press", muscleTarget: "Shoulders", seen: false)
-    let curls = Exercise(imageName: "", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+    let curls = Exercise(imageName: "", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)*/
     
     var exercises: [Exercise] = []
     var goodExs: [Exercise] = []
@@ -35,7 +35,11 @@ class NewWorkoutViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        exercises = [squats, jumpropes, bench, deadlift, dips, situp, overheadpress, curls]
+        
+        //Load in exercises from API
+        getExercises()
+        
+        //exercises = [squats, jumpropes, bench, deadlift, dips, situp, overheadpress, curls]
         goodExs = []
         
         pageTitle = UILabel()
@@ -136,9 +140,18 @@ class NewWorkoutViewController: UIViewController {
             }
         }
         wName = workoutName.text
-        w = Workout(name: wName, exercises: goodExs)
+        //UPDATE
+        w = Workout(id: 1, date: "test", name: wName, notes: "test", exercises: goodExs)
         delegate?.updateWorkout(newWorkout: w)
         dismiss(animated: true, completion: nil)
+    }
+    private func getExercises() {
+        NetworkManager.getExercises() { exercises in
+            self.exercises = exercises
+            DispatchQueue.main.async {
+                self.newExercisePicker.reloadData()
+            }
+        }
     }
 }
 

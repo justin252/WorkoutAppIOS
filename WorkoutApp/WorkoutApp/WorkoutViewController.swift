@@ -15,14 +15,7 @@ class WorkoutViewController: UIViewController {
     let padding: CGFloat = 5
     let workoutReuseIdentifier = "exerciseCellReuseIdentifier"
     
-    let squats = Exercise(imageName: "", name: "Squats", muscleTarget: "Hamstrings", seen: false)
-    let jumpropes = Exercise(imageName: "", name: "Jump Ropes", muscleTarget: "Calves", seen: false)
-    let bench = Exercise(imageName: "", name: "Bench Press", muscleTarget: "Chest", seen: false)
-    let deadlift = Exercise(imageName: "", name: "Deadlift", muscleTarget: "Back", seen: false)
-    let dips = Exercise(imageName: "", name: "Dips", muscleTarget: "Triceps", seen: false)
-    let situp = Exercise(imageName: "", name: "Sit-ups", muscleTarget: "Abs", seen: false)
-    let overheadpress = Exercise(imageName: "", name: "Overhead press", muscleTarget: "Shoulders", seen: false)
-    let curls = Exercise(imageName: "", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+   
     
     var exercises: [Exercise] = []
     var workouts: [Workout] = []
@@ -30,19 +23,30 @@ class WorkoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        title = "Workouts"
+
 //        title = "Workout App"
+        let squats = Exercise(id: 1, name: "Squats", seen: false, sets: [])
+        let jumpropes = Exercise(id: 1, name: "Jumpropes", seen: false,  sets: [])
+        let bench = Exercise(id: 1, name: "Bench Press", seen: false, sets: [])
+        let deadlift = Exercise(id: 1, name: "Deadlift", seen: false, sets: [])
+        let dips = Exercise(id: 1, name: "Dips", seen: false, sets: [])
+        let situp = Exercise(id: 1, name: "Sit-ups", seen: false, sets: [])
+        let overheadpress = Exercise(id: 1, name: "Overhead Press", seen: false, sets: [])
+        let curls = Exercise(id: 1, name: "Dumbell curls", seen: false, sets: [])
         
-        let workout1 = Workout(name: "Workout 1", exercises: [bench, overheadpress, dips])
-        let workout2 = Workout(name: "Workout 2", exercises: [deadlift, curls])
-        let workout3 = Workout(name: "Workout 3", exercises: [squats, situp])
-        let workout4 = Workout(name: "Workout 4", exercises: [jumpropes])
+        
+        let workout1 = Workout(id: 1, date: "12/13/20", name: "Workout 1", notes: "Great workout.", exercises:[bench, overheadpress, dips])
+        let workout2 = Workout(id: 1, date: "12/13/20", name: "Workout 2", notes: "Great workout.", exercises:[deadlift, curls])
+        let workout3 = Workout(id: 1, date: "12/13/20", name: "Workout 3", notes: "Great workout.", exercises:[squats, situp])
+        let workout4 = Workout(id: 1, date: "12/13/20", name: "Workout 4", notes: "Great workout.", exercises:[jumpropes])
         
         exercises = [squats, jumpropes, bench, deadlift, dips, situp, overheadpress, curls]
         workouts = [workout1, workout2, workout3, workout4]
         
         titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = "Welcome to the workout app! \nWould you like to view workouts or exercises?"
+        titleLabel.text = "Welcome! Get started and design workouts!"
         titleLabel.font = .systemFont(ofSize: 16, weight: .bold)
         titleLabel.numberOfLines = 2
         titleLabel.textColor = .black
@@ -89,8 +93,8 @@ class WorkoutViewController: UIViewController {
         NSLayoutConstraint.activate([
             workoutsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             workoutsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            workoutsView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            workoutsView.heightAnchor.constraint(equalToConstant: 500)
+            workoutsView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            workoutsView.heightAnchor.constraint(equalToConstant: 490)
         ])
         
         NSLayoutConstraint.activate([
@@ -146,7 +150,7 @@ extension WorkoutViewController: UICollectionViewDelegate{
         let workout = workouts[indexPath.row]
 
         //let index = indexPath.row
-        let vc = EditWorkoutViewController(name: workout.name)
+        let vc = EditWorkoutViewController(name: workout.name, exercises: workout.exercises)
         //(pic: song.songcover, title:song.songtitle, artist:song.songartist, album: song.songalbum, index: index)
         //vc.delegate = self
         present(vc, animated: true, completion: nil)
@@ -156,7 +160,6 @@ extension WorkoutViewController: UICollectionViewDelegate{
 
 extension WorkoutViewController: NameDelegate{
     func updateWorkout(newWorkout:Workout) {
-        print("HI")
         workouts.append(newWorkout);
         workoutsView.reloadData()
     }

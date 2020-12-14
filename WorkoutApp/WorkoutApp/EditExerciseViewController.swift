@@ -11,7 +11,7 @@ class EditExerciseViewController: UIViewController {
     weak var delegate: SaveNewExerciseDelegate?
     
     var index: Int?
-    var ex : Exercise?
+    var ex : ExpandedExercise?
     var titleView: UILabel!
     var workoutImageView : UIImageView!
     
@@ -22,7 +22,7 @@ class EditExerciseViewController: UIViewController {
     var button: UIButton!
 
 
-    init(delegate: SaveNewExerciseDelegate?, ex: Exercise?, index: Int?) {
+    init(delegate: SaveNewExerciseDelegate?, ex: ExpandedExercise?, index: Int?) {
         super.init(nibName: nil, bundle: nil)
         self.ex = ex
         self.delegate = delegate
@@ -34,13 +34,6 @@ class EditExerciseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-
-        titleView = UILabel()
-        titleView.translatesAutoresizingMaskIntoConstraints = false
-        titleView.font = .systemFont(ofSize: 25, weight: .bold)
-        titleView.text = "Edit Exercise"
-        titleView.textColor = .white
-        view.addSubview(titleView)
         
         workoutImageView = UIImageView(image: UIImage(named: ex?.imageName ?? "" ))
         workoutImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -56,25 +49,17 @@ class EditExerciseViewController: UIViewController {
         workoutName.backgroundColor = .black
         view.addSubview(workoutName)
         
-        muscleGroupLabel = UILabel()
-        muscleGroupLabel.translatesAutoresizingMaskIntoConstraints = false
-        muscleGroupLabel.font = .systemFont(ofSize: 20)
-        muscleGroupLabel.text = "Muscle Target: "
-        muscleGroupLabel.textColor = .white
-        muscleGroupLabel.backgroundColor = .black
-        view.addSubview(muscleGroupLabel)
-        
         muscleGroupTitle = UITextField()
         muscleGroupTitle.translatesAutoresizingMaskIntoConstraints = false
         muscleGroupTitle.font = .systemFont(ofSize: 20)
-        muscleGroupTitle.text = ex?.muscleTarget
+        muscleGroupTitle.text = "Muscle Target: \(ex!.muscleTarget)"
         muscleGroupTitle.textColor = .white
         muscleGroupTitle.backgroundColor = .black
         view.addSubview(muscleGroupTitle)
         
         button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Dismiss and save text", for: .normal)
+        button.setTitle("Dismiss", for: .normal)
         button.backgroundColor = .black
         button.setTitleColor(.white, for: .normal)
         
@@ -89,51 +74,35 @@ class EditExerciseViewController: UIViewController {
     }
     func setupConstraints() {
         // textField constraints
-        NSLayoutConstraint.activate([
-            titleView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            titleView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            ])
-        
-        NSLayoutConstraint.activate([
-            workoutImageView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 20),
-            workoutImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            workoutImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            workoutImageView.heightAnchor.constraint(equalToConstant: 400),
-            workoutImageView.widthAnchor.constraint(equalToConstant: 400),
-
-
-            ])
-
         // button constraints
         NSLayoutConstraint.activate([
-            workoutName.topAnchor.constraint(equalTo: workoutImageView.bottomAnchor, constant: 16),
+            workoutName.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             workoutName.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             //songTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             workoutName.heightAnchor.constraint(equalToConstant: 48)
             ])
         
         NSLayoutConstraint.activate([
-            muscleGroupLabel.topAnchor.constraint(equalTo: workoutName.bottomAnchor, constant: 16),
-            muscleGroupLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 110),
-            //artistLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            muscleGroupLabel.heightAnchor.constraint(equalToConstant: 48)
-            ])
-        
-        
-        NSLayoutConstraint.activate([
             muscleGroupTitle.topAnchor.constraint(equalTo: workoutName.bottomAnchor, constant: 16),
-            muscleGroupTitle.leadingAnchor.constraint(equalTo: muscleGroupLabel.trailingAnchor, constant: 10),
+            muscleGroupTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             //artistTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             muscleGroupTitle.heightAnchor.constraint(equalToConstant: 48)
             ])
         
-        
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: muscleGroupTitle.bottomAnchor, constant: 16),
+            workoutImageView.topAnchor.constraint(equalTo: muscleGroupTitle.bottomAnchor, constant: 20),
+            workoutImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            workoutImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            workoutImageView.heightAnchor.constraint(equalToConstant: 400)
+        ])
+
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: workoutImageView.bottomAnchor, constant: 16),
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button.heightAnchor.constraint(equalToConstant: 48),
             button.widthAnchor.constraint(equalToConstant: 200)
             ])
+        
     }
 
     @objc func dismissViewControllerAndSaveText() {

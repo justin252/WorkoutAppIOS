@@ -1,11 +1,12 @@
 import json
+import os
 
 from db import db
-from db import Session, Exercise, Sets
-from flask import Flask
+from db import Workout, Exercise, Sets, User
+from flask import Flask, url_for
 from flask import request
 
-db_filename = "workouts.db"
+db_filename = "app.db"
 app = Flask(__name__)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{db_filename}"
@@ -23,9 +24,9 @@ def failure_response(message, code=404):
     return json.dumps({"success": False, "error": message}), code
 
 @app.route("/")
-@app.route("/sessions/")
-def get_sessions():
-    return success_response([t.serialize() for t in Session.query.all()])
+@app.route("/workouts/")
+def get_workouts():
+    return success_response([t.serialize() for t in Workout.query.all()])
 
 @app.route ("/sets/")
 def get_sets():
@@ -35,44 +36,89 @@ def get_sets():
 def get_exercises():
     return success_response([t.serialize() for t in Exercise.query.all()])
 
-@app.route("/sessions/", methods=["POST"])
-def create_session():
-    body = json.loads(request.data)
-    new_session = Session(date = body.get('date'), notes = body.get('notes'))
-    db.session.add(new_session)
-    db.session.commit()
-    return success_response(new_session.serialize(), 201)
+@app.route ("/users/")
+def get_users():
+    return success_response([t.serialize() for t in User.query.all()])
 
-@app.route("/sessions/<int:session_id>/", methods=["POST"])
-def update_session(session_id):
+@app.route("/workouts/", methods=["POST"])
+def create_workout():
     body = json.loads(request.data)
-    session = Session.query.filter_by(id = session_id).first()
-    if session is None:
-        return failure_response('Session not found')
-    session.date = body.get('date', session.date)
-    session.notes = body.get('notes', session.notes)
+    new_workout = Workout(date = body.get('date'), notes = body.get('notes'))
+    db.session.add(new_workout)
     db.session.commit()
-    return success_response(session.serialize())
+    return success_response(new_workout.serialize(), 201)
 
-@app.route("/sessions/<int:session_id>/exercise/<int:exercise_id>/", methods=["POST"])
-def update_exercise(session_id, exercise_id):
+@app.route("/users/", methods=["POST"])
+def create_user():
     body = json.loads(request.data)
-    session = Session.query.filter_by(id = session_id).first()
-    if session is None:
-        return failure_response('Session not found!')
+    new_user = User(username = body.get('username'), password = body.get('password'), age = body.get('age'), weight = body.get('weight'), sex = body.get('sex'))
+    db.session.add(new_user)
+    db.session.commit()
+    return success_response(new_user.serialize(), 201)
+
+@app.route("/exercises/", methods=["POST"])
+def create_exercise():
+    body = json.loads(request.data)
+    new_exercise = Exercise(name = body.get('name'))
+    db.session.add(new_exercise)
+    db.session.commit()
+    return success_response(new_exercise.serialize(), 201)
+
+@app.route("/users/<int:user_id>/", methods=["POST"])
+def update_user(user_id):
+    body = json.loads(request.data)
+    user = User.query.filter_by(id = user_id).first()
+    if user is None:
+        return failure_response('User not found')
+    user.username = body.get('username', user.date)
+    user.password = body.get('password', user.notes)
+    user.age = body.get('age', user.age)
+    user.weight = body.get('weight', user.weight)
+    user.sex = body.get ('sex', user.sex)
+    db.session.commit()
+    return success_response(user.serialize())
+
+@app.route("/users/<int:user_id>/workouts/<int:workout_id>/", methods=["POST"])
+def update_workout(user_id,workout_id):
+    body = json.loads(request.data)
+    user = User.query.filter_by(id = user_id).first()
+    if user is None:
+        return failure_response('User not found')
+    workout = Workout.query.filter_by(id = workout_id).first()
+    if workout is None:
+        return failure_response('Workout not found')
+    workout.date = body.get('date', workout.date)
+    workout.name = body.get('name', workout.name)
+    workout.notes = body.get('notes', workout.notes)
+    db.session.commit()
+    return success_response(workout.serialize())
+
+@app.route("/users/<int:user_id>/workouts/<int:workout_id>/exercise/<int:exercise_id>/", methods=["POST"])
+def update_exercise(user_id, workout_id, exercise_id):
+    body = json.loads(request.data)
+    user = User.query.filter_by(id = user_id).first()
+    if user is None:
+        return failure_response('User not found')
+    workout = Workout.query.filter_by(id = workout_id).first()
+    if workout is None:
+        return failure_response('Workout not found!')
     exercise = Exercise.query.filter_by(id = exercise_id).first()
     if exercise is None:
         return failure_response('Exercise not found!')
     exercise.name = body.get('name', exercise.name)
+    exercise.seen = body.get('seen', exercise.seen)
     db.session.commit()
-    return success_response(session.serialize())
+    return success_response(workout.serialize())
 
-@app.route("/sessions/<int:session_id>/exercise/<int:exercise_id>/sets/<int:sets_id>/" , methods=["POST"])
-def update_sets(session_id, exercise_id, sets_id):
+@app.route("/users/<int:user_id>/workouts/<int:workout_id>/exercise/<int:exercise_id>/sets/<int:sets_id>/" , methods=["POST"])
+def update_sets(user_id, workout_id, exercise_id, sets_id):
     body = json.loads(request.data)
-    session = Session.query.filter_by(id = session_id).first()
-    if Session is None:
-        return failure_response('Session not found!')
+    user = User.query.filter_by(id = user_id).first()
+    if user is None:
+        return failure_response('User not found')
+    workout = Workout.query.filter_by(id = workout_id).first()
+    if Workout is None:
+        return failure_response('Workout not found!')
     exercise = Exercise.query.filter_by(id = exercise_id).first()
     if exercise is None:
         return failure_response('Exercise not found!')
@@ -83,36 +129,70 @@ def update_sets(session_id, exercise_id, sets_id):
     sets.reps = body.get('reps', sets.reps)
     sets.weight = body.get('weight', sets.weight)
     db.session.commit()
-    return success_response(session.serialize())
+    return success_response(workout.serialize())
 
-@app.route("/sessions/<int:session_id>/", methods=["DELETE"])
-def delete_session(session_id):
-    session = Session.query.filter_by(id=Session_id).first()
-    if Session is None:
-        return failure_response("Session not found!")
-    db.session.delete(session)
+
+@app.route("/users/<int:user_id>/", methods=["DELETE"])
+def delete_user(user_id):
+    user = User.query.filter_by(id = user_id).first()
+    if user is None:
+        return failure_response('User not found')
+    db.session.delete(user)
     db.session.commit()
-    return success_response(session.serialize())
+    return success_response(user.serialize())
 
-@app.route("/sessions/<int:session_id>/exercises/", methods=["POST"])
-def assign_exercises(session_id):
-    session = Session.query.filter_by(id = session_id).first()
-    if Session is None:
-        return failure_response('Session not found!')
+@app.route("/users/<int:user_id>/workouts/<int:workout_id>/", methods=["DELETE"])
+def delete_workout(user_id,workout_id):
+    user = User.query.filter_by(id = user_id).first()
+    if user is None:
+        return failure_response('User not found')
+    workout = Workout.query.filter_by(id=workout_id).first()
+    if Workout is None:
+        return failure_response("Workout not found!")
+    db.session.delete(workout)
+    db.session.commit()
+    return success_response(workout.serialize())
+
+@app.route("/users/<int:user_id>/workouts/", methods=["POST"])
+def assign_workouts(user_id):
+    user = User.query.filter_by(id = user_id).first()
+    if user is None:
+        return failure_response('User not found')
+    body = json.loads(request.data)
+    date = body.get('date')
+    name = body.get('name')
+    notes = body.get('notes')
+    new_workout = Workout(date = date, name = name, notes = notes, user_id = user_id)
+    db.session.add(new_workout)
+    db.session.commit()
+    return success_response(new_workout.serialize())
+
+@app.route("/users/<int:user_id>/workouts/<int:workout_id>/exercises/", methods=["POST"])
+def assign_exercises(user_id,workout_id):
+    user = User.query.filter_by(id = user_id).first()
+    if user is None:
+        return failure_response('User not found')
+    workout = Workout.query.filter_by(id = workout_id).first()
+    if Workout is None:
+        return failure_response('Workout not found!')
     body = json.loads(request.data)
     name = body.get('name')
-    exercise = Exercise.query.filter_by(name = name).first()
+    seen = body.get('seen')
+    exercise = Exercise.query.filter_by(name = name, seen = seen).first()
     if exercise is None:
         exercise = Exercise(name = name)
-    session.exercises.append(exercise)
+    workout.exercises.append(exercise)
     db.session.commit()
-    return success_response(session.serialize())
+    return success_response(workout.serialize())
 
-@app.route("/sessions/<int:session_id>/exercises/<int:exercise_id>/", methods=["POST"])
-def assign_sets(session_id, exercise_id):
-    session = Session.query.filter_by(id = session_id).first()
-    if Session is None:
-        return failure_response('Session not found!')
+@app.route("/users/<int:user_id>/workouts/<int:workout_id>/exercises/<int:exercise_id>/sets/", methods=["POST"])
+def assign_sets(user_id,workout_id, exercise_id):
+    user = User.query.filter_by(id = user_id).first()
+    if user is None:
+        return failure_response('User not found')
+    workout = Workout.query.filter_by(id = workout_id).first()
+    if Workout is None:
+        return failure_response('Workout not found!')
     exercise = Exercise.query.filter_by(id = exercise_id).first()
     if exercise is None:
         return failure_response('Exercise not found!')
@@ -127,5 +207,7 @@ def assign_sets(session_id, exercise_id):
     db.session.commit()
     return success_response(sets.serialize())
 
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    port = int(os.environ.get("PORT", 4000))
+    app.run(host= "0.0.0.0", port= port)
