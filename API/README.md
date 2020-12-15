@@ -132,3 +132,8 @@ Request:
 }
 Response:
 {"success": true, "data": {"id": 1, "number": 1, "reps": 16, "weight": "160 lb"}}
+
+Datebase Model:
+A user and workouts have a one to many relationship because a user can have many workouts
+Workouts and exercises have a many to many relationship because mutiple workouts can have mutiple exercises.
+Exercises and sets have a many to many relationship because mutiple exercises can have mutiple sets.
