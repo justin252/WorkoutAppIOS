@@ -23,8 +23,8 @@
 		9539417B25868AB3002A0202 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539417A25868AB3002A0202 /* TabBarController.swift */; };
 		9539418125868ACA002A0202 /* WorkoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539418025868ACA002A0202 /* WorkoutCollectionViewCell.swift */; };
 		9539418425868AD2002A0202 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539418325868AD2002A0202 /* WorkoutViewController.swift */; };
+		95B2F38F2588A299002AB69A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95B2F38E2588A299002AB69A /* Assets.xcassets */; };
 		95E85B5F2586CCE000B1DD03 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E85B5E2586CCE000B1DD03 /* NetworkManager.swift */; };
-		AA8D7F6325887930007BA33A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8D7F622588792F007BA33A /* Assets.xcassets */; };
 		AA8D7F67258879F1007BA33A /* SetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D7F66258879F1007BA33A /* SetStore.swift */; };
 		AAEB26CE2586DB32000DB61E /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEB26CD2586DB32000DB61E /* Workout.swift */; };
 		B72324862A6E893DD00CCF44 /* Pods_WorkoutApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F0D29F67A6D8859D6B5960 /* Pods_WorkoutApp.framework */; };
@@ -54,8 +54,8 @@
 		9539417A25868AB3002A0202 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9539418025868ACA002A0202 /* WorkoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCollectionViewCell.swift; sourceTree = "<group>"; };
 		9539418325868AD2002A0202 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		95B2F38E2588A299002AB69A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95E85B5E2586CCE000B1DD03 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		AA8D7F622588792F007BA33A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../WorkoutApp-main/IOSFinalProject/Assets.xcassets"; sourceTree = "<group>"; };
 		AA8D7F66258879F1007BA33A /* SetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetStore.swift; sourceTree = "<group>"; };
 		AAEB26CD2586DB32000DB61E /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		D5F0D29F67A6D8859D6B5960 /* Pods_WorkoutApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkoutApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,7 +108,7 @@
 		9539414625868996002A0202 /* WorkoutApp */ = {
 			isa = PBXGroup;
 			children = (
-				AA8D7F622588792F007BA33A /* Assets.xcassets */,
+				95B2F38E2588A299002AB69A /* Assets.xcassets */,
 				AA8D7F66258879F1007BA33A /* SetStore.swift */,
 				9539414725868996002A0202 /* AppDelegate.swift */,
 				9539414925868996002A0202 /* SceneDelegate.swift */,
@@ -205,7 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9539415425868998002A0202 /* LaunchScreen.storyboard in Resources */,
-				AA8D7F6325887930007BA33A /* Assets.xcassets in Resources */,
+				95B2F38F2588A299002AB69A /* Assets.xcassets in Resources */,
 				9539414F25868996002A0202 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

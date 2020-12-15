@@ -13,7 +13,9 @@ protocol LogWorkoutDelegate: class{
 class CalendarViewController: UIViewController {
     var calendar = FSCalendar()
     var editButton: UIButton!
-    var inEditingMode: Bool = true
+    var inEditingMode: Bool = false
+    var editingSwitch: UISwitch!
+    var toggleLabel: UILabel!
     
 //   Hard-coded data - replace with data from API
 //    let squats = Exercise(imageName: "", name: "Squats", muscleTarget: "Hamstrings", seen: false)
@@ -58,29 +60,53 @@ class CalendarViewController: UIViewController {
         //setup calendar
         calendar.dataSource = self
         calendar.delegate = self
-        calendar.frame = CGRect(x: 0, y: 100, width: view.frame.size.width, height: view.frame.size.height-300)
+        calendar.frame = CGRect(x: 0, y: 125, width: view.frame.size.width, height: view.frame.size.height-300)
         calendar.scrollDirection = .horizontal
         calendar.pagingEnabled = true
         calendar.register(FSCalendarCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(calendar)
         
+        editingSwitch = UISwitch()
+        editingSwitch.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        editingSwitch.isOn = false
+        editingSwitch.addTarget(self, action: #selector(handleToggled), for: .valueChanged)
+        view.addSubview(editingSwitch)
+        
+        toggleLabel = UILabel()
+        toggleLabel.text = "Toggle editing mode"
+        toggleLabel.font = .boldSystemFont(ofSize: 16)
+        view.addSubview(toggleLabel)
         //setup add workout button
         editButton = UIButton()
-        editButton.setTitle("Tap to view a session", for: .normal)
-        editButton.setTitleColor(.black, for: .normal)
-        editButton.titleLabel?.font =  .boldSystemFont(ofSize: 16)
-        editButton.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
-        editButton.layer.cornerRadius = 0.5*editButton.bounds.size.width
-        editButton.clipsToBounds = true
+//        editButton.setTitle("Tap to view a session", for: .normal)
+//        editButton.setTitleColor(.black, for: .normal)
+//        editButton.layer.masksToBounds = true
+//        editButton.layer.cornerRadius = editButton.frame.width / 2
+//
+        
+//        editButton.titleLabel?.font =  .boldSystemFont(ofSize: 16)
+        
+//        editButton.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
+//        editButton.layer.borderColor = UIColor.orange.cgColor
+//        editButton.layer.cornerRadius = 0.5*editButton.bounds.size.width
+//        editButton.clipsToBounds = true
         editButton.addTarget(self, action: #selector(toggleButtonText), for: .touchUpInside)
         view.addSubview(editButton)
     }
     func setupConstraints(){
+        editingSwitch.snp.makeConstraints{ make in
+            make.trailing.equalToSuperview().inset(25)
+            make.top.equalTo(calendar.snp.bottom).offset(5)
+        }
         editButton.snp.makeConstraints{ make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(calendar.snp.bottom).offset(20)
-            make.height.equalTo(30)
-            make.width.equalTo(300)
+            make.bottom.equalTo(calendar.snp.bottom).offset(20)
+//            make.height.equalTo(30)
+//            make.width.equalTo(300)
+        }
+        toggleLabel.snp.makeConstraints{ make in
+            make.trailing.equalTo(editingSwitch.snp.leading).offset(-10)
+            make.centerY.equalTo(editingSwitch.snp.centerY)
         }
     }
     
@@ -103,6 +129,9 @@ class CalendarViewController: UIViewController {
             //let workout1 = Workout(id: 1, date: "", name: "Workout 1", notes: "", exercises: [bench, overheadpress, dips])
             presentInfoLog(date: dateString, workoutToDisplay: workout1)
         }
+    }
+    @objc func handleToggled(){
+        inEditingMode = !inEditingMode
     }
     @objc func toggleButtonText(){
         inEditingMode = !inEditingMode
@@ -138,6 +167,7 @@ class CalendarViewController: UIViewController {
     }
     
 }
+
 extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
     
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
