@@ -141,16 +141,58 @@ class NewWorkoutViewController: UIViewController {
         }
         wName = workoutName.text
         //UPDATE
-        w = Workout(id: 1, date: "test", name: wName, notes: "test", exercises: goodExs, userId: 1)
+        w = Workout(id: 1, date: "test", name: wName, notes: "test", exercises: goodExs)
+        postWorkout(w: w)
         delegate?.updateWorkout(newWorkout: w)
         dismiss(animated: true, completion: nil)
     }
     private func getExercises() {
+
         NetworkManager.getExercises() { exercises in
+            print("Here")
             self.exercises = exercises
             DispatchQueue.main.async {
                 self.newExercisePicker.reloadData()
             }
+        }
+    }
+    private func postWorkout(w: Workout) {
+        print(w.date)
+        print(w.name)
+        print(w.notes!)
+        print(w.exercises)
+        var stringg = "["
+        //[{"id": 30, "name": "planks", "seen": false, "sets": [{"id": 2, "number": 1, "reps": 16, "weight": "160 lb"}]}, {"id": 31, "name": "crunches", "seen": false, "sets": [{"id": 2, "number": 1, "reps": 16, "weight": "160 lb"}]}, {"id": 32, "name": "russiantwists", "seen": false, "sets": [{"id": 2, "number": 1, "reps": 16, "weight": "160 lb"}]}]},
+        
+        //"data": [, {"id": 31, "name": "crunches", "seen": false, "sets": [{"id": 2, "number": 1, "reps": 16, "weight": "160 lb"}]}, {"id": 32, "name": "russiantwists", "seen": false, "sets": [{"id": 2, "number": 1, "reps": 16, "weight": "160 lb"}]}]
+        
+        //[{"id": 30, "name": "planks", "seen": false, "sets": [{"id": 2, "number": 1, "reps": 16, "weight": "160 lb"}]}
+        var othercount: Int = 0
+        for ex in w.exercises{
+            othercount += 1
+            
+            //stringg += "{"
+            //stringg = stringg + "\"id\": " + String(ex.id) + ", \"name\": \"" +  ex.name + "\", \"seen\": " + ex.seen + ", \"sets\": ["
+            var count: Int = 0
+            var setCount: Int = ex.sets.count
+            for set in ex.sets{
+                count = count + 1
+                stringg += "{\"id\": " + String(set.id) + ", \"number\": "
+                stringg += String(set.number) + ", \"reps\": "  + String(set.reps)
+                stringg +=  ", \"weight\": \"" + set.weight + "\"}"
+                if(count < setCount){
+                    stringg += ", "
+                }
+            }
+            stringg = stringg + "]}"
+            if(othercount < w.exercises.count){
+                stringg = stringg + ", "
+            }
+            stringg = stringg + "]"
+         }
+        print(stringg)
+        NetworkManager.postWorkout(date: w.date, name: w.name, notes: w.notes!, exercises: stringg) { _ in
+            print("Success")
         }
     }
 }

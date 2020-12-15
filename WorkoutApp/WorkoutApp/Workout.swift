@@ -6,26 +6,25 @@
 //
 import Foundation
 
-class Workout {
+class Workout: Codable {
     var id: Int
     var date: String
     var name: String
-    var notes: String
+    var notes: String?
     var exercises: [Exercise]
-    var userId: Int
+    //var userId: Int
     
-    init(id: Int, date: String, name: String, notes: String, exercises: [Exercise], userId: Int) {
+    init(id: Int, date: String, name: String, notes: String, exercises: [Exercise]) {
         self.id = 1
         self.date = date
         self.name = name
         self.notes = notes
         self.exercises = exercises
-        self.userId = userId
     }
     
 }
-/*
-class WorkoutResponse {
+
+class WorkoutDataResponse: Codable {
     var data: [Workout]
 }
-*/
+

@@ -19,6 +19,8 @@ class WorkoutViewController: UIViewController {
     
     var exercises: [Exercise] = []
     var workouts: [Workout] = []
+    var workoutsOld: [Workout] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,15 +37,16 @@ class WorkoutViewController: UIViewController {
         let overheadpress = Exercise(id: 1, name: "Overhead Press", seen: false, sets: [])
         let curls = Exercise(id: 1, name: "Dumbell curls", seen: false, sets: [])
         
-        let workout1 = Workout(id: 1, date: "", name: "Workout 1", notes: "", exercises: [bench,overheadpress,dips], userId: 1)
-        let workout2 = Workout(id: 1, date: "", name: "Workout 2", notes: "", exercises: [deadlift,curls], userId: 1)
-        let workout3 = Workout(id: 1, date: "", name: "Workout 3", notes: "", exercises: [squats,situp], userId: 1)
-        let workout4 = Workout(id: 1, date: "", name: "Workout 4", notes: "", exercises: [jumpropes], userId: 1)
+       let workout1 = Workout(id: 1, date: "", name: "Workout 1", notes: "", exercises: [bench,overheadpress,dips])
+        let workout2 = Workout(id: 1, date: "", name: "Workout 2", notes: "", exercises: [deadlift,curls])
+        let workout3 = Workout(id: 1, date: "", name: "Workout 3", notes: "", exercises: [squats,situp])
+        let workout4 = Workout(id: 1, date: "", name: "Workout 4", notes: "", exercises: [jumpropes])
 
-
+        //Load in workouts
+        getWorkouts()
         
         exercises = [squats, jumpropes, bench, deadlift, dips, situp, overheadpress, curls]
-        workouts = [workout1, workout2, workout3, workout4]
+        workoutsOld = [workout1, workout2, workout3, workout4]
         
         titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -123,6 +126,15 @@ class WorkoutViewController: UIViewController {
         present(vc, animated: true, completion: nil)
         //dismiss(animated: true, completion: nil)
     }
+    private func getWorkouts() {
+        NetworkManager.getWorkouts() { workouts in
+            self.workouts = workouts
+            DispatchQueue.main.async {
+                self.workoutsView.reloadData()
+            }
+        }
+    }
+
 }
 
 extension WorkoutViewController: UICollectionViewDataSource{
@@ -164,5 +176,4 @@ extension WorkoutViewController: NameDelegate{
         workouts.append(newWorkout);
         workoutsView.reloadData()
     }
-  
 }

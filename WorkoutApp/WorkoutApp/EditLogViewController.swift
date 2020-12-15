@@ -188,7 +188,7 @@ class EditLogViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // Sort in alphabetical order
+// workoutToLog is the key. This is the object whose data you want to pass into the API.
     var workoutNames : [String] = []
 
     var workoutToLog: Workout!
@@ -230,9 +230,6 @@ class EditLogViewController: UIViewController {
         formatter.dateFormat = "EEE, MM/dd/YYYY"
         let dateString = formatter.string(from: currentDate)
         let dateLabelTitle = "Edit Log for " + dateString
-        
-        
-        
         
         //dateLabel
         dateLabel = UILabel()
@@ -388,6 +385,7 @@ extension EditLogViewController: UITableViewDelegate, UITableViewDataSource {
         return 0
     }
     
+//in this cellForRowAt function, the switch-case 2 will get you the data you want for sets, reps, and weight.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch tableView {
             
@@ -472,4 +470,5 @@ extension EditLogViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
 }
+
 

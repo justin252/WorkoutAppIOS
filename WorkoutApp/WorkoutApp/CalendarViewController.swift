@@ -15,33 +15,39 @@ class CalendarViewController: UIViewController {
     var editButton: UIButton!
     var inEditingMode: Bool = true
     
+//   Hard-coded data - replace with data from API
+//    let squats = Exercise(imageName: "", name: "Squats", muscleTarget: "Hamstrings", seen: false)
+//    let jumpropes = Exercise(imageName: "", name: "Jump Ropes", muscleTarget: "Calves", seen: false)
+//    let bench = Exercise(imageName: "", name: "Bench Press", muscleTarget: "Chest", seen: false)
+//    let deadlift = Exercise(imageName: "", name: "Deadlift", muscleTarget: "Back", seen: false)
+//    let dips = Exercise(imageName: "", name: "Dips", muscleTarget: "Triceps", seen: false)
+//    let situp = Exercise(imageName: "", name: "Sit-ups", muscleTarget: "Abs", seen: false)
+//    let overheadpress = Exercise(imageName: "", name: "Overhead press", muscleTarget: "Shoulders", seen: false)
+//    let curls = Exercise(imageName: "", name: "Dumbell curls", muscleTarget: "Biceps", seen: false)
+//
+// dateToDisplay: date, workoutToDisplay: workout1, notes: "example notes", sets: [5, 6, 7], reps: [10, 20, 30], weight: ["100", "200", "300"]
+// End of hard-coded data
     
-    let squats = Exercise(id: 1, name: "Squats", seen: false, sets: [])
-    let jumpropes = Exercise(id: 1, name: "Jump Ropes", seen: false, sets: [])
-    let bench = Exercise(id: 1, name: "Bench", seen: false, sets: [])
-    let deadlift = Exercise(id: 1, name: "Deadlift", seen: false, sets: [])
-    let dips = Exercise(id: 1, name: "Dips", seen: false, sets: [])
-    let situp = Exercise(id: 1, name: "Situps", seen: false, sets: [])
-    let overheadpress = Exercise(id: 1, name: "Overhead Press", seen: false, sets: [])
-    let curls = Exercise(id: 1, name: "Curls", seen: false, sets: [])
 
+    
+    var exercises: [Exercise] = []
     var workouts: [Workout] = []
+    
+
     //dictionary storing data
     var completeWorkoutLog : [Date : Workout]! = [:]
         
-    var exercises: [Exercise] = []
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        getWorkouts()
+//        let workout1 = Workout(id: 1, date: "", name: "Workout 1", notes: "", exercises: [bench, overheadpress, dips])
+//        let workout2 = Workout(id: 1, date: "", name: "Workout 2", notes: "", exercises: [deadlift, curls])
+//        let workout3 = Workout(id: 1, date: "", name: "Workout 3", notes: "",exercises: [squats, situp])
+//        let workout4 = Workout(id: 1, date: "", name: "Workout 4", notes: "", exercises: [jumpropes])
         
-        let workout1 = Workout(id: 1, date: "", name: "Workout 1", notes: "", exercises: [bench, overheadpress, dips], userId: 1)
-        let workout2 = Workout(id: 1, date: "", name: "Workout 2", notes: "", exercises: [deadlift, curls], userId: 1)
-        let workout3 = Workout(id: 1, date: "", name: "Workout 3", notes: "",exercises: [squats, situp], userId: 1)
-        let workout4 = Workout(id: 1, date: "", name: "Workout 4", notes: "", exercises: [jumpropes], userId: 1)
-        
-        exercises = [squats, jumpropes, bench, deadlift, dips, situp, overheadpress, curls]
-        workouts = [workout1, workout2, workout3, workout4]
+        //exercises = [squats, jumpropes, bench, deadlift, dips, situp, overheadpress, curls]
+       // workouts = [workout1, workout2, workout3, workout4]
 
         
         setupViews()
@@ -60,10 +66,12 @@ class CalendarViewController: UIViewController {
         
         //setup add workout button
         editButton = UIButton()
-        editButton.setTitle("Log Session", for: .normal)
+        editButton.setTitle("Tap to view a session", for: .normal)
         editButton.setTitleColor(.black, for: .normal)
         editButton.titleLabel?.font =  .boldSystemFont(ofSize: 16)
-        editButton.addTarget(self, action: #selector(displayEditingCalendar), for: .touchUpInside)
+        editButton.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
+        editButton.layer.cornerRadius = 0.5*editButton.bounds.size.width
+        editButton.clipsToBounds = true
         editButton.addTarget(self, action: #selector(toggleButtonText), for: .touchUpInside)
         view.addSubview(editButton)
     }
@@ -72,47 +80,62 @@ class CalendarViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(calendar.snp.bottom).offset(20)
             make.height.equalTo(30)
+            make.width.equalTo(300)
         }
     }
     
+    
+//  Call from API.
+// date => convert to dateString which is a String => access fields for workout => create workout object and pass it into the presentInfoLog function.
+    
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE MM-dd-YYYY"
-        let currentDate = formatter.string(from: date)
-        print("\(currentDate)")
+        formatter.dateFormat = "MM/dd/YYYY"
+        let dateString = formatter.string(from: date)
     
         if (inEditingMode) {
             presentEditLog(date: date)
         }
+        // workout1 is a dummy variable. replace get that workout from the API
         else {
-            let workout1 = Workout(id: 1, date: "", name: "Workout 1", notes: "", exercises: [bench, overheadpress, dips], userId: 1)
-            presentInfoLog(date: date, workouts: workouts, workout: completeWorkoutLog[date] ?? workout1)
+            let workout1 = workouts[0]
+            print(workout1)
+            //let workout1 = Workout(id: 1, date: "", name: "Workout 1", notes: "", exercises: [bench, overheadpress, dips])
+            presentInfoLog(date: dateString, workoutToDisplay: workout1)
         }
     }
     @objc func toggleButtonText(){
+        inEditingMode = !inEditingMode
+        
         if editButton.titleLabel?.text == "Log Session" {
             editButton.setTitle("View Session", for: .normal)
+            // we can change the color of the edit button here
         }
         else {
             editButton.setTitle("Log Session", for: .normal)
         }
     }
-    @objc func displayEditingCalendar(){
-        inEditingMode = true
-        // Change color of UIButton and display of calendar
-    }
+    // complete list of workouts comes from the API.
+    // dateToDisplay is of type Date, from the calendar.
     func presentEditLog(date: Date) {
         let vc = EditLogViewController(delegate:self, dateToDisplay: date, workoutsToDisplay: workouts)
         present(vc, animated: true, completion: nil)
     }
-    func presentInfoLog(date: Date, workouts: [Workout], workout: Workout) {
-        let vc = InfoLogViewController(delegate:self, dateToDisplay: date, workoutToDisplay: workout)
+    
+    // dateToDisplay here is the converted string
+    // workoutToDisplay here is a singular workout constructed from the API - workouts[0] is a dummy variable
+    func presentInfoLog(date: String, workoutToDisplay: Workout) {
+        let vc = InfoLogViewController(dateToDisplay: date, workoutToDisplay: workouts[0])
         present(vc, animated: true, completion: nil)
     }
     func displayErrorMessage(){
         
     }
-    
+    private func getWorkouts() {
+        NetworkManager.getWorkouts() { workouts in
+            self.workouts = workouts
+        }
+    }
     
 }
 extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
@@ -128,3 +151,6 @@ extension CalendarViewController: LogWorkoutDelegate{
         
     }
 }
+
+
+

@@ -6,11 +6,18 @@
 //
 import Foundation
 
-struct Exercise: Codable{
+class Exercise: Codable{
     var id: Int
     var name: String
     var seen: Bool
-    var sets: [String]
+    var sets: [SetStore]
+    
+    init(id: Int, name: String, seen: Bool, sets: [SetStore]) {
+        self.id = id
+        self.name = name
+        self.seen = seen
+        self.sets = sets
+    }
 }
 struct ExerciseDataResponse: Codable{
     var data: [Exercise]
